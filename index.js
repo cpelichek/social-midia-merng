@@ -9,7 +9,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    sayHi: () => console.log("Hi!"),
+    sayHi: () => "Hello World!",
   },
 };
 
