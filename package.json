@@ -1,0 +1,16 @@
+{
+  "name": "social-midia-merng",
+  "version": "1.0.0",
+  "description": "Social midia project using the MERNG stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caio Pelichek Gonçalves",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.24.0",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.12.8"
+  }
+}
