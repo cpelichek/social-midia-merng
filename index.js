@@ -1,25 +1,11 @@
 // Dependency imports
 const { ApolloServer } = require("apollo-server");
-const gql = require("graphql-tag");
 const mongoose = require("mongoose");
 
 // Relative imports
 const typeDefs = require("./graphql/typeDefs");
-const Post = require("./models/Post");
+const resolvers = require("./graphql/resolvers");
 const { MONGODB } = require("./config.js");
-
-const resolvers = {
-  Query: {
-    async getPosts() {
-      try {
-        const posts = await Post.find();
-        return posts;
-      } catch (err) {
-        throw new Error(err);
-      }
-    },
-  },
-};
 
 // Apollo uses Express behind the scenes
 const server = new ApolloServer({
