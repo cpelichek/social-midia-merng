@@ -47,4 +47,8 @@ module.exports = gql`
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!, commentId: ID): Post!
   }
+  # this ain't needed for our final app, but it's a cool demonstration of Subscription. Here we are going to make use of it so everytime a new post is created we show the new post for each user subscribed
+  type Subscription {
+    newPost: Post!
+  }
 `;
