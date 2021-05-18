@@ -68,7 +68,7 @@ module.exports = {
       }
 
       // Make sure user doesn't already exist
-      const user = await User.find({ username });
+      const user = await User.findOne({ username });
       if (user) {
         throw new UserInputError("Username is taken", {
           errors: {
@@ -103,5 +103,5 @@ module.exports = {
 // Sometimes we will have multiple resolvers and will want to know the result of the last step before the one we are at - so data goes from one resolver them goes to the other, and them the next one, getting processed in different ways and then returned to the user. In that case we would pass "parent" argument before "args". But because in our case we don't have any resolver before this one, "parent" would be undefined, so we can pass "_" instead of "parent" - that way it doesn't take any space.
 // "args" here is the arguments from the typeDefs registerInput
 // "info" will have some metadata
-// But what about "context"?
+// But what about "context"? It can contain our headers, which can have for instance an authentication token
 // We can omit info and context for now, since they haven't been used yet
