@@ -8,6 +8,9 @@ module.exports = gql`
     username: String!
     comments: [Comment]!
     likes: [Like]!
+    # we could calculate on the client browser the number of likes by using likes.length, but we can as well do it on the server and send it to the client, that way we minimize the amount of computation that's happening on the client
+    likeCount: Int!
+    commentCount: Int!
   }
   type Comment {
     id: ID!
