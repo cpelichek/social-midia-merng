@@ -18,6 +18,7 @@ module.exports = gql`
     username: String!
     body: String!
     likes: [Like]!
+    likeCount: Int!
   }
   type Like {
     id: ID!

@@ -12,6 +12,9 @@ module.exports = {
     },
     commentCount: (parent) => parent.comments.length,
   },
+  Comment: {
+    likeCount: (parent) => parent.likes.length,
+  },
   Query: {
     ...postsResolvers.Query,
   },
