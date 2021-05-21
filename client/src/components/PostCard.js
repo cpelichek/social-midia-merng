@@ -11,8 +11,8 @@ const PostCard = ({
     username,
     likeCount,
     commentCount,
-    likes,
-    comments,
+    // likes,
+    // comments,
   },
 }) => {
   function likePost() {

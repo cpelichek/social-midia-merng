@@ -10,7 +10,7 @@ function Home() {
   const { loading, data: { getPosts: posts } = {} } =
     useQuery(FETCH_POSTS_QUERY);
 
-  if (posts) console.log(posts);
+  // if (posts) console.log(posts);
 
   return (
     <Grid columns={3}>

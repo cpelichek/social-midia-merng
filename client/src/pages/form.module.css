@@ -1,0 +1,16 @@
+.formContainer {
+  max-width: clamp(28.571428rem, 60%, 21.428571rem);
+  margin: auto;
+}
+
+.formContainer .required > label:after {
+  margin: -0.2em 0 0 0.2em;
+  content: "*";
+  color: #db2828;
+}
+
+.formContainer input {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
