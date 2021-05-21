@@ -1,0 +1,10 @@
+/* semantic-ui-react has a css reset that changes <html> font-size to 14px, so all rem values are in relation to that  */
+/* because of specificity, !important here was used to override semantic-ui-react rules */
+.page-title {
+  justify-content: center !important;
+  margin-top: 0.714285rem;
+}
+
+.cardGrid {
+  margin-bottom: 1.428571rem !important;
+}

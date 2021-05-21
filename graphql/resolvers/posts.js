@@ -33,7 +33,7 @@ module.exports = {
       // Since we are using our own helper function, checkAuth, to validate the header and token, that means we don't need to use try-catch or throw any errors bellow
       const user = checkAuth(context);
 
-      if (args.body.trim() === "") {
+      if (body.trim() === "") {
         throw new Error("Post body must not be empty");
       }
 
