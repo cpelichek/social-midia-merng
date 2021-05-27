@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 
+import { AuthContext } from "../context/auth";
 import { REGISTER_USER } from "../utils/graphql";
 import { useForm } from "../utils/hooks";
 import styles from "./form.module.css";
 
 function Register(props) {
+  const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
 
   const initialState = {
@@ -22,8 +24,9 @@ function Register(props) {
   );
 
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
-    update(_, result) {
-      // console.log(result);
+    update(_, { data: { register: userData } }) {
+      console.log(userData);
+      context.login(userData); // We don't need a new function for register, because when we register we want our user to log in
       // When we successfully register a user, props.history.push("/") sends us back to the homepage
       props.history.push("/");
     },
