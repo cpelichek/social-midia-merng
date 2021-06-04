@@ -6,15 +6,15 @@ import { useMutation } from "@apollo/client";
 import { useForm } from "../utils/hooks";
 
 function PostForm() {
-  const { values, onChange, onSubmit } = useForm(createPostCallback, {
+  const { userValues, onChange, onSubmit } = useForm(createPostCallback, {
     body: "",
   });
 
   const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
-    variables: values,
+    variables: userValues,
     update(_, result) {
       console.log(result);
-      values.body = "";
+      userValues.body = "";
     },
   });
 
@@ -30,7 +30,7 @@ function PostForm() {
           placeholder="Speak your mind!"
           name="body"
           onChange={onChange}
-          value={values.body}
+          value={userValues.body}
         />
         <Button type="submit" color="teal">
           Submit
