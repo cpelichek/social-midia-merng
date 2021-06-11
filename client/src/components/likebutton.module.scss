@@ -1,0 +1,19 @@
+%like-button {
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: #00b5ab !important;
+  }
+}
+
+button.ui.teal.button {
+  &.likeButton {
+    @extend %like-button;
+  }
+}
+
+button.ui.teal.buttons .button {
+  &.likeButton {
+    @extend %like-button;
+  }
+}
