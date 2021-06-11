@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 
 import { useForm } from "../utils/hooks";
 import { CREATE_POST_MUTATION, FETCH_POSTS_QUERY } from "../utils/graphql";
+import styles from "./postform.module.scss";
 
 function PostForm() {
   const { userValues, onChange, onSubmit } = useForm(createPostCallback, {
@@ -40,20 +41,26 @@ function PostForm() {
             name="body"
             onChange={onChange}
             value={userValues.body}
-            // error={error ? true : false}
+            error={error ? true : false}
           />
-          <Button type="submit" color="teal">
+          <Button
+            className={styles.submitBtn} // solution 1 // TODO:figure out how to override Semantic UI rules... I'm trying to use cursor: not-allowed with this class added to the specifity of the Semantic UI style but it isn't working
+            type="submit"
+            color="teal"
+            disabled={userValues.body ? "" : "disabled"} //solution 1
+            // style={userValues.body ? {} : { display: "none" }} // solution 2
+          >
             Submit
           </Button>
         </Form.Field>
       </Form>
-      {/* {error && (
+      {error && (
         <div className="ui error message" style={{ marginBottom: 20 }}>
           <ul className="list">
             <li>{error.graphQLErrors[0].message}</li>
           </ul>
         </div>
-      )} */}
+      )}
     </>
   );
 }

@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { AuthContext } from "../context/auth";
 import { LOGIN_USER } from "../utils/graphql";
 import { useForm } from "../utils/hooks";
-import styles from "./form.module.css";
+import styles from "./form.module.scss";
 
 function Login(props) {
   const context = useContext(AuthContext);
